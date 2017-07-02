@@ -1,0 +1,10 @@
+GET     /move                       @controllers.MoveController.move
+POST    /move                       @controllers.MoveController.lastOpponentMove
+
+POST    /start                      @controllers.StartController.start
+
+#GET     /move                       @controllers.GameController.move
+#POST    /move                       @controllers.GameController.lastOpponentMove
+
+#GET    /start                      @controllers.GameController.start
+
