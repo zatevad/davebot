@@ -5,11 +5,11 @@ import java.util.concurrent.TimeUnit
 import akka.actor.{ActorRef, ActorSystem}
 import akka.pattern.ask
 import akka.util.Timeout
-import service.{Game, GameRules, RPSDW}
 import service.GameRules.{Item, Tie, Win}
+import service.{Game, GameRules, RPSDW}
 
 import scala.concurrent.{ExecutionContext, Future}
-import scala.util.Random
+
 
 object Main {
   def main(args: Array[String]): Unit = {
@@ -46,19 +46,19 @@ object Main {
 
       implicit val system = ActorSystem("Rock-Paper-Scissors")
 
-        val gameDefinition = RPSDW
+      val gameDefinition = RPSDW
 
-        val userItemArgument = args(0).toLowerCase
-        val userOption = gameDefinition.nameToItem.get(userItemArgument)
+      val userItemArgument = args(0).toLowerCase
+      val userOption = gameDefinition.nameToItem.get(userItemArgument)
 
-        if (userOption.isEmpty && userItemArgument != "computer") {
-          println(s"Illegal item. Valid items for this game are: ${gameDefinition.nameToItem.keys.mkString(", ")}")
-          system.terminate()
-          System.exit(0)
-        }
-        // $COVERAGE-ON
+      if (userOption.isEmpty && userItemArgument != "computer") {
+        println(s"Illegal item. Valid items for this game are: ${gameDefinition.nameToItem.keys.mkString(", ")}")
+        system.terminate()
+        System.exit(0)
+      }
+      // $COVERAGE-ON
 
-        startGame(userOption, gameDefinition)
+      startGame(userOption, gameDefinition)
 
     }
   }
@@ -66,6 +66,7 @@ object Main {
 
   /**
     * Start a game of rock-paper-scissors
+    *
     * @param userOption The user's selected Item
     */
   private def startGame(userOption: Option[Item], definition: GameRules)(implicit system: ActorSystem): Unit = {
@@ -94,13 +95,14 @@ object Main {
   /**
     * Play a given game. This is a Façade on top of the Game actor. Architecturally it would be part of the View, but for
     * the simple command-line version this is a convenient place to put it.
-    * @param game The instance of the Game to play
+    *
+    * @param game        The instance of the Game to play
     * @param player1Name The name of the first player (for return message purposes)
     * @param player2Name The name of the second player (for result message purposes)
     * @param player1Item The Item selected by the first player
     * @param player2Item The Item selected by the second player
-    * @param ec An ExecutionContext to execute an Ask command
-    * @param timeout A Timeout for getting a message back to the Actor
+    * @param ec          An ExecutionContext to execute an Ask command
+    * @param timeout     A Timeout for getting a message back to the Actor
     * @return A Future containing a message with the result
     */
   private def play(game: ActorRef, player1Name: String, player2Name: String, player1Item: Item, player2Item: Item)(implicit ec: ExecutionContext, timeout: Timeout): Future[String] = {

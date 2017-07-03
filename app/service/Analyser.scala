@@ -2,13 +2,12 @@ package service
 
 import models.{LastMoveRequest, StartRequest}
 
-
 object Analyser {
   def initialise(result: StartRequest): Unit = {
 
   }
 
-  def saveLastMove(result: LastMoveRequest): Unit  = {
+  def saveLastMove(result: LastMoveRequest): Unit = {
 
   }
 
