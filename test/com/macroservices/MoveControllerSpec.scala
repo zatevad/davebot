@@ -1,4 +1,4 @@
-package controllers
+package com.macroservices
 
 import org.scalatestplus.play.PlaySpec
 import org.scalatestplus.play.guice.GuiceOneAppPerTest
@@ -33,6 +33,7 @@ class MoveControllerSpec extends PlaySpec with GuiceOneAppPerTest {
       val json = """{"opponentLastMove": "PAPER"}"""
       val request = FakeRequest(POST, "/move").withHeaders("Host" -> "localhost").withJsonBody(Json.parse(json))
       val result = route(app, request).get
+
 
       status(result) mustBe OK
     }

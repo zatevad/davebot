@@ -1,13 +1,14 @@
-package controllers
+package com.macroservices.controllers
 
 import javax.inject.{Inject, Singleton}
 
-import models.LastMoveRequest
+import com.macroservices.models.LastMoveRequest
+import com.macroservices.service.Analyser
+import com.macroservices.utils.JSONFactory
 import play.api.data.validation.ValidationError
 import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.libs.json.{JsPath, Json}
 import play.api.mvc.{Action, Controller}
-import service.Analyser
 
 import scala.concurrent.Future
 
@@ -26,7 +27,7 @@ class MoveController @Inject()(val messagesApi: MessagesApi) extends Controller 
       request.body.validate[LastMoveRequest].fold(
         (error: Seq[(JsPath, Seq[ValidationError])]) => {
           println(error)
-          Future.successful(BadRequest(utils.JSONFactory.generateErrorJSON(play.api.http.Status.BAD_REQUEST, Left(error))))
+          Future.successful(BadRequest(JSONFactory.generateErrorJSON(play.api.http.Status.BAD_REQUEST, Left(error))))
         },
         (result: LastMoveRequest) => {
           println(result)

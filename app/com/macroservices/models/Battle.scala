@@ -1,4 +1,4 @@
-package models
+package com.macroservices.models
 
 import org.joda.time.DateTime
 

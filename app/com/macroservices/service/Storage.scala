@@ -1,8 +1,8 @@
-package service
+package com.macroservices.service
 
 import javax.inject.Inject
 
-import models.Battle
+import com.macroservices.models.Battle
 import org.joda.time.DateTime
 import play.api.db._
 

@@ -1,7 +1,7 @@
-package service
+package com.macroservices.service
 
 import akka.actor.{Actor, ActorLogging, ActorRef, Props}
-import service.GameRules.Item
+import com.macroservices.service.GameRules.Item
 
 class Game(gameRules: GameRules) extends Actor with ActorLogging {
 

@@ -1,10 +1,10 @@
-GET     /move                       @controllers.MoveController.move
-POST    /move                       @controllers.MoveController.lastOpponentMove
+GET     /move                       @com.macroservices.controllers.MoveController.move
+POST    /move                       @com.macroservices.controllers.MoveController.lastOpponentMove
 
-POST    /start                      @controllers.StartController.start
+POST    /start                      @com.macroservices.controllers.StartController.start
 
-#GET     /move                       @controllers.GameController.move
-#POST    /move                       @controllers.GameController.lastOpponentMove
+GET     /server/move                @com.macroservices.controllers.server.GameController.move
+POST    /server/move                @com.macroservices.controllers.server.GameController.lastOpponentMove
 
-#GET    /start                      @controllers.GameController.start
+GET    /server/start                @com.macroservices.controllers.server.GameController.start
 

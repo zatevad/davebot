@@ -1,4 +1,4 @@
-package models
+package com.macroservices.models
 
 import play.api.libs.json.Json
 

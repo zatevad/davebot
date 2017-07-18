@@ -1,4 +1,4 @@
-package service
+package com.macroservices.service
 
 
 import org.joda.time.DateTime

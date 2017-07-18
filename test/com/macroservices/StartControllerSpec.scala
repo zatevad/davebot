@@ -1,4 +1,4 @@
-package controllers
+package com.macroservices
 
 import org.scalatestplus.play.PlaySpec
 import org.scalatestplus.play.guice.GuiceOneAppPerTest

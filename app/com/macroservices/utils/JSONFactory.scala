@@ -1,4 +1,4 @@
-package utils
+package com.macroservices.utils
 
 import play.api.Logger
 import play.api.data.validation.ValidationError

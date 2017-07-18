@@ -1,6 +1,6 @@
-package service
+package com.macroservices.service
 
-import service.GameRules.Item
+import com.macroservices.service.GameRules.Item
 
 trait RPSDW extends GameRules {
   override val nameToItem: Map[String, Item] = Map(

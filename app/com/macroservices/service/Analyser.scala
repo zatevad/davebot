@@ -1,6 +1,6 @@
-package service
+package com.macroservices.service
 
-import models.{LastMoveRequest, StartRequest}
+import com.macroservices.models.{LastMoveRequest, StartRequest}
 
 object Analyser {
   def initialise(result: StartRequest): Unit = {
